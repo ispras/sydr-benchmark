@@ -1,0 +1,14 @@
+chapter(Using the yodl program)
+
+The tt(yodl) program is reads one or more input files, interprets the commands
+therein, and writes one output file. The program is started as:
+
+center(
+    tt(yodl) em(flags) em(inputfile) em([inputfile...])
+)
+
+itemize(
+   it() 123
+
+   it() 456
+)

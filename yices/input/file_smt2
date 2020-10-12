@@ -1,0 +1,19 @@
+(set-logic QF_BV)
+(declare-fun file_file_text_0 () (_ BitVec 8))
+(define-fun ref!0 () (_ BitVec 8) file_file_text_0) ; Byte reference
+(define-fun ref!470 () (_ BitVec 32) (bvsub ((_ zero_extend 24) ref!0) (_ bv4294967295 32))) ; CMP operation
+(define-fun ref!476 () (_ BitVec 1) (ite (= ref!470 (_ bv0 32)) (_ bv1 1) (_ bv0 1))) ; Zero flag
+(define-fun ref!491 () (_ BitVec 8) ((_ extract 31 24) ((_ zero_extend 24) ref!0))) ; Byte reference - MOV operation
+(define-fun ref!492 () (_ BitVec 8) ((_ extract 23 16) ((_ zero_extend 24) ref!0))) ; Byte reference - MOV operation
+(define-fun ref!493 () (_ BitVec 8) ((_ extract 15 8) ((_ zero_extend 24) ref!0))) ; Byte reference - MOV operation
+(define-fun ref!494 () (_ BitVec 8) ref!0) ; Byte reference - MOV operation
+(define-fun ref!497 () (_ BitVec 64) ((_ zero_extend 32) ((_ zero_extend 24) ref!0))) ; MOV operation
+(define-fun ref!508 () (_ BitVec 32) (bvsub ((_ zero_extend 24) ref!0) (_ bv59 32))) ; CMP operation
+(define-fun ref!514 () (_ BitVec 1) (ite (= ref!508 (_ bv0 32)) (_ bv1 1) (_ bv0 1))) ; Zero flag
+(define-fun ref!521 () (_ BitVec 32) (bvsub ((_ extract 31 0) (bvadd (_ bv1 64) ref!497)) (_ bv59 32))) ; CMP operation
+(define-fun ref!523 () (_ BitVec 1) ((_ extract 31 31) (bvxor (bvxor ((_ extract 31 0) (bvadd (_ bv1 64) ref!497)) (bvxor (_ bv59 32) ref!521)) (bvand (bvxor ((_ extract 31 0) (bvadd (_ bv1 64) ref!497)) ref!521) (bvxor ((_ extract 31 0) (bvadd (_ bv1 64) ref!497)) (_ bv59 32)))))) ; Carry flag
+(define-fun ref!527 () (_ BitVec 1) (ite (= ref!521 (_ bv0 32)) (_ bv1 1) (_ bv0 1))) ; Zero flag
+(define-fun ref!567 () (_ BitVec 32) (bvsub (concat ref!491 ref!492 ref!493 ref!494) (_ bv4294967295 32))) ; CMP operation
+(define-fun ref!573 () (_ BitVec 1) (ite (= ref!567 (_ bv0 32)) (_ bv1 1) (_ bv0 1))) ; Zero flag
+(assert (and (and (and (= ref!573 (_ bv1 1)) (not (= ref!476 (_ bv1 1)))) (not (= ref!514 (_ bv1 1)))) (= (bvand (bvnot ref!523) (bvnot ref!527)) (_ bv1 1))))
+(check-sat)
