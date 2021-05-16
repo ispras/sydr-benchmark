@@ -3,7 +3,7 @@
 This repository contains applications for benchmarking Sydr (Symbolic
 DynamoRIO). These applications were used to evaluate Sydr in
 "Sydr: Cutting Edge Dynamic Symbolic Execution"
-\[[paper](https://arxiv.org/abs/2011.09269)\] \[[slides](https://vishnya.xyz/vishnyakov-isprasopen2020.pdf)\].
+\[[paper](https://arxiv.org/abs/2011.09269)\] \[[slides](https://vishnya.xyz/vishnyakov-isprasopen2020.pdf)\] \[[demo](https://youtu.be/yznSawgD9D0)\].
 
 ## Sydr
 
